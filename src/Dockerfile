@@ -13,21 +13,21 @@ EXPOSE 443
 FROM mcr.microsoft.com/dotnet/sdk:6.0 AS build
 WORKDIR /src
 
-COPY ./src/Cadastro.WorkerService/Cadastro.WorkerService.csproj ./Cadastro.WorkerService/
+COPY ./src/Cadastro.WorkerService/src/Cadastro.WorkerService.csproj ./Cadastro.WorkerService/src/
 COPY ./src/Cadastro.Domain/Cadastro.Domain.csproj ./Cadastro.Domain/
 COPY ./src/Cadastro.Data/Cadastro.Data.csproj ./Cadastro.Data/
 COPY ./src/Cadastro.Configuracoes/Cadastro.Configuracoes.csproj ./Cadastro.Configuracoes/
 
-RUN dotnet restore ./Cadastro.WorkerService/Cadastro.WorkerService.csproj
+RUN dotnet restore ./Cadastro.WorkerService/src/Cadastro.WorkerService.csproj
 
-COPY ./src/Cadastro.WorkerService/ ./Cadastro.WorkerService/
+COPY ./src/Cadastro.WorkerService/src/ ./Cadastro.WorkerService/src/
 COPY ./src/Cadastro.Configuracoes/ ./Cadastro.Configuracoes/
 COPY ./src/Cadastro.Domain/ ./Cadastro.Domain/
 COPY ./src/Cadastro.Data/ ./Cadastro.Data/
-RUN dotnet build ./Cadastro.WorkerService/Cadastro.WorkerService.csproj -c Release -o /app/build
+RUN dotnet build ./Cadastro.WorkerService/src/Cadastro.WorkerService.csproj -c Release -o /app/build
 
 FROM build AS publish
-RUN dotnet publish ./Cadastro.WorkerService/Cadastro.WorkerService.csproj -c Release -o /app/publish
+RUN dotnet publish ./Cadastro.WorkerService/src/Cadastro.WorkerService.csproj -c Release -o /app/publish
 
 FROM base AS final
 WORKDIR /app

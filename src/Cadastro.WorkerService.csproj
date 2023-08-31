@@ -24,8 +24,8 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<ProjectReference Include="..\Cadastro.Configuracoes\Cadastro.Configuracoes.csproj" />
-		<ProjectReference Include="..\Cadastro.Data\Cadastro.Data.csproj" />
-		<ProjectReference Include="..\Cadastro.Domain\Cadastro.Domain.csproj" />
+		<ProjectReference Include="..\..\Cadastro.Configuracoes\Cadastro.Configuracoes.csproj" />
+		<ProjectReference Include="..\..\Cadastro.Data\Cadastro.Data.csproj" />
+		<ProjectReference Include="..\..\Cadastro.Domain\Cadastro.Domain.csproj" />
 	</ItemGroup>
 </Project>
