@@ -65,8 +65,8 @@ IHost host = Host.CreateDefaultBuilder(args)
         configuration = context.Configuration;
         string serviceName = typeof(Worker).Assembly.GetName().Name;
         string serviceVersion = typeof(Worker).Assembly.GetName().Version?.ToString();
-        var activity = new ActivitySource(serviceName, serviceVersion);
-        services.AddScoped(x => activity);
+        //var activity = new ActivitySource(serviceName, serviceVersion);
+        //services.AddScoped(x => activity);
 
         Log.Logger = LoggingExtension.AddCustomLogging(services, configuration, serviceName);
 
